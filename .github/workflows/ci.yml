@@ -24,15 +24,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Executar testes e gerar relatório
+      - name: Executar testes
         run: pytest --junitxml=report.xml
 
-      - name: Criar Release
+      - name: Criar Release e enviar relatório
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v1.0.${{ github.run_number }}
           name: "Relatório CI ${{ github.run_number }}"
-          body: "Relatório de testes gerado automaticamente."
+          body: "Relatório de testes da execução ${{ github.run_number }}."
           files: report.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
