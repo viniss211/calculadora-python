@@ -35,3 +35,10 @@ jobs:
           cp requirements.txt dist/
           cd dist
           zip -r calculadora.zip *
+
+      - name: Enviar e-mail
+        run: python send_email.py
+        env:
+          EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
