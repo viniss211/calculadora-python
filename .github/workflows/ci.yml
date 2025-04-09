@@ -27,12 +27,12 @@ jobs:
       - name: Executar testes
         run: pytest --junitxml=report.xml
 
-      - name: Criar Release e enviar relatório
+      - name: Criar release no GitHub
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: "Relatório CI ${{ github.run_number }}"
-          body: "Relatório de testes da execução ${{ github.run_number }}."
+          tag_name: v1.0.0
+          name: Release v1.0.0
           files: report.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
