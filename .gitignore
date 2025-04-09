@@ -1,0 +1,35 @@
+# Ambiente virtual
+venv/
+.env
+.env.*
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs
+*.log
+
+# Arquivos de testes
+*.coverage
+.cache/
+pytest_cache/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Artefatos de build
+build/
+dist/
+*.egg-info/
+*.zip
+
+# Configs locais do VS Code e afins
+.vscode/
+.idea/
+
+# GitHub Actions temporários
+*.token
+*.secret
