@@ -34,5 +34,5 @@ jobs:
           name: Release v1.0.0
           files: report.xml
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
