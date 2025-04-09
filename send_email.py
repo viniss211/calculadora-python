@@ -1,9 +1,9 @@
 import smtplib
 import os
 
-EMAIL = os.environ.get("EMAIL_SENDER")
+EMAIL = os.environ.get("EMAIL_USERNAME")
 PASSWORD = os.environ.get("EMAIL_PASSWORD")
-TO = os.environ.get("EMAIL_RECEIVER")
+TO = os.environ.get("EMAIL_TO")
 
 with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
     smtp.starttls()
