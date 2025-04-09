@@ -8,7 +8,7 @@ TO = os.environ.get("EMAIL_TO")
 with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
     smtp.starttls()
     smtp.login(EMAIL, PASSWORD)
-    subject = "Relatório do Pipeline"
+    subject = "Relatorio do Pipeline"
     body = "Pipeline executado com sucesso!" #
     msg = f"Subject: {subject}\n\n{body}"
     smtp.sendmail(EMAIL, TO, msg)
