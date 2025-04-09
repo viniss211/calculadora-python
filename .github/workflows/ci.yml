@@ -2,9 +2,8 @@ name: CI - Calculadora FastAPI
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   tests:
@@ -25,12 +24,14 @@ jobs:
           pip install -r requirements.txt
 
       - name: Executar testes
-        run: pytest --junitxml=report.xml
+        run: |
+          pytest --junitxml=report.xml
 
-      - name: Criar release no GitHub
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #
-
+      - name: Empacotar com ZIP
+        run: |
+          mkdir -p dist
+          cp -r src/ dist/
+          cp -r tests/ dist/
+          cp requirements.txt dist/
+          cd dist
+          zip -r calculadora.zip *
