@@ -28,8 +28,14 @@ jobs:
         run: |
           pytest --junitxml=report.xml
 
-      - name: Salvar artefato de testes
-        uses: actions/upload-artifact@v2.3.1
+      - name: Compactar relatório de testes
+        run: zip report.zip report.xml
+
+      - name: Criar diretório de artefatos
+        run: mkdir -p artifacts && mv report.zip artifacts/
+
+      - name: Upload do artefato
+        uses: actions/upload-artifact@v3
         with:
           name: relatorio-testes
-          path: report.xml
+          path: artifacts/report.zip
